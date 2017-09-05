@@ -32,7 +32,7 @@
  ## groups table
 
   |Column|Type|Option|
-  |group_name|string|null: false, add_index :groups, :group_name, unique: true|
+  |group_name|string|null: false, :group_name, unique: true|
 
   ### association
 
