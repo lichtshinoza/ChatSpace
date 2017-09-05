@@ -19,7 +19,7 @@
   |Column|Types|Option|
   |------|------|------|
   |name|string|null: false, index :true, :name, unique: true|
-  |email|string|null: false, index :true, :email, unique: true|
+  |email|string|null: false, :email, unique: true|
   |password|string|null: false|
 
 
