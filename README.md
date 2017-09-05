@@ -20,7 +20,6 @@
   |------|------|------|
   |name|string|null: false, index :true, unique: true|
   |email|string|null: false, unique: true|
-  |password|string|null: false|
 
 
 ### Association
@@ -32,7 +31,7 @@
  ## groups table
 
   |Column|Type|Option|
-  |group_name|string|null: false, unique: true|
+  |name|string|null: false, unique: true|
 
   ### association
 
