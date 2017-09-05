@@ -18,8 +18,8 @@
 
   |Column|Types|Option|
   |------|------|------|
-  |name|string|null: false, index :true, :name, unique: true|
-  |email|string|null: false, :email, unique: true|
+  |name|string|null: false, index :true, unique: true|
+  |email|string|null: false, unique: true|
   |password|string|null: false|
 
 
