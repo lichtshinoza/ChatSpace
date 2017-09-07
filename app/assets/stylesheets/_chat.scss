@@ -3,4 +3,140 @@
   height:900px;
   float:right;
   background-color: white;
+
+  .header {
+    @extend .clearfix;
+    width: calc(100% - 80px);
+    height:100px;
+    padding:0 40px 0 40px;
+    float:right;
+
+      .left-header {
+        display: inline-block;
+        float:left;
+
+        .left-header__title {
+          color:#333333;
+          font-size: 20px;
+          padding-top:35px;
+        }
+        ul.left-header__members {
+          float: left;
+
+          li.member {
+            color:#999999;
+            font-size: 12px;
+            padding-top: 15px;
+            display: inline-block;
+          }
+        }
+
+      }
+
+      .right-header {
+        height:40px;
+        color:#38AEF0;
+        margin-top: 28px;
+        float: right;
+        line-height: 40px;
+        border: 1px solid #38AEF0;
+          a.right-header__button {
+            color:#38AEF0;
+            text-decoration: none;
+            display:block;
+            padding: 0 20px;
+
+            &:link  {
+              text-decoration: none;
+            }
+
+            &:visited   {
+              text-decoration: none;
+            }
+
+            &:hover {
+              text-decoration: none;
+              color: white;
+              background-color:#38AEF0;
+            }
+
+            &:active    {
+              text-decoration: none;
+            }
+          }
+      }
+  }
+
+  .messages {
+    @extend .clearfix;
+    width: calc(100% - 80px);
+    height:710px;
+    padding:0 40px 0 40px;
+    // border-top: 1px solid #eeeeee;
+    background-color:#fafafa;
+    float:right;
+      .message {
+        padding:40px 0 40px 0;
+        .upper_message {
+          @extend .clearfix;
+          padding-bottom:10px;
+
+          .upper_message__user-name {
+            color:#434A54;
+            font-weight: bold;
+            font-size: 16px;
+            float: left;
+          }
+          .upper_message__data {
+            color:#999999;
+            font-size: 12px;
+            margin: 4px 0 0 10px;
+            float: left;
+          }
+        }
+
+        .lower_message {
+          color:#434A54;
+          font-size: 14px;
+        }
+      }
+  }
+  .form {
+    @extend .clearfix;
+    width: calc(100% - 80px);
+    height:50px;
+    padding:20px 40px;
+    background-color: #dddddd;
+    float:right;
+
+    input#message__content.form__message {
+      width: calc(100% - 150px);
+      height: 50px;
+      padding: 0 10px;
+      border: none;
+      box-sizing: border-box;
+      float: left;
+    }
+
+    .form__mask {
+      height: 50px;
+      line-height: 50px;
+      padding-right: 10px;
+      float:left;
+      display: inline-block;
+      background-color: #ffffff;
+    }
+
+    .form__submit {
+      margin-left: 15px;
+      padding: 0 30px;
+      height: 50px;
+      font-size: 16px;
+      float: right;
+      color: #ffffff;
+      border:none;
+      background-color: #38AEF0;
+    }
+
+  }
 }

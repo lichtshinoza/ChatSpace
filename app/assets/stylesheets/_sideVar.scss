@@ -3,36 +3,34 @@
   height:900px;
   float:left;
   background-color: #2f3e51;
-}
 
-.header {
-  width:260px;
-  height:100px;
-  padding:0 20px 0 20px;
-  float:left;
-  background-color: #253141;
-  line-height: 100px;
 
-    .header__name {
-      color:#FFFFFF;
-      font-size: 16px;
-      display: inline-block;
-    }
+  .header {
+    width:260px;
+    height:100px;
+    padding:0 20px 0 20px;
+    float:left;
+    background-color: #253141;
+    line-height: 100px;
 
-    ul.header__lists {
+      .header__name {
         color:#FFFFFF;
-        float: right;
+        font-size: 16px;
+        display: inline-block;
+      }
+      ul.header__lists {
+          float: right;
 
         .icon {
           color:#FFFFFF;
         }
-
-      li.list {
-          display: inline-block;
+        li.list {
+            color:#FFFFFF;
+            display: inline-block;
+        }
       }
-    }
+  }
 }
-
 .groups {
   width:260px;
   height:800px;

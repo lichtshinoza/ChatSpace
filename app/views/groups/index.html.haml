@@ -2,7 +2,7 @@
 .wrapper
   .sideVar
     .header
-      %h3.header__name Group Name Test
+      %h3.header__name User Name Test
       %ul.header__lists
         %li.list
           = link_to '/groups/' do
@@ -21,3 +21,33 @@
         .group__name test3
         .group__message msg3
   .chat
+    .header
+      .left-header
+        .left-header__title Group Name Test
+        %ul.left-header__members
+          %li.member Member :
+          %li.member name1
+          %li.member name2
+      .right-header
+        = link_to '/groups/', class: "right-header__button" do
+          Edit
+    .messages
+      .message
+        .upper_message
+          .upper_message__user-name username
+          .upper_message__data 06.09.2017
+        .lower_message test message1 test message1 test message1 test message1
+      .message
+        .upper_message
+          .upper_message__user-name username2
+          .upper_message__data 10.09.2017
+        .lower_message test message2 test message2 test message2 test message2
+    .form
+
+      %form{ action: "/", method: "post"}
+      %input{ name: "title", size: "40", class: "form__message", id: "message__content"}
+        .form__mask
+
+          %i.fa.fa-picture-o.icon
+          %input{ type: "file", name: "file", class: "form__message", id: "message__content", style: "display:none"}
+      %input{ type: "submit", value: "send", class: "form__submit"}
