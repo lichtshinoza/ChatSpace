@@ -2,9 +2,14 @@
 .wrapper
   .sideVar
     .header
-      .header__name Group Name Test
-      / %ul.header__lists
-          / %li.list %i.fa fa-pencil-square-o icon
+      %h3.header__name Group Name Test
+      %ul.header__lists
+        %li.list
+          = link_to '/groups/' do
+            %i.fa.fa-pencil-square-o.icon
+        %li.list
+          = link_to '/groups/' do
+            %i.fa.fa-cog.icon
     .groups
       .group
         .group__name test1

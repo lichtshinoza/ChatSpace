@@ -11,26 +11,25 @@
   padding:0 20px 0 20px;
   float:left;
   background-color: #253141;
+  line-height: 100px;
 
     .header__name {
       color:#FFFFFF;
       font-size: 16px;
-      line-height: 100px
+      display: inline-block;
     }
 
-    ul {
-
-      .header__lists {
+    ul.header__lists {
         color:#FFFFFF;
-        line-height: 100px;
-        display: inline-block;
         float: right;
-      }
-        li {
-          .list {
-            display: inline-block;
-          }
+
+        .icon {
+          color:#FFFFFF;
         }
+
+      li.list {
+          display: inline-block;
+      }
     }
 }
 
