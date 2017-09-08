@@ -1,0 +1,35 @@
+.notification
+.wrapper
+  .sideVar
+    = render 'sideVar'
+  .chat
+    .header
+      .left-header
+        .left-header__title Group Name Test
+        %ul.left-header__members
+          %li.member Member :
+          %li.member name1
+          %li.member name2
+      .right-header
+        = link_to '/groups/', class: "right-header__button" do
+          Edit
+    .messages
+      .message
+        .upper_message
+          .upper_message__user-name username
+          .upper_message__data 06.09.2017
+        .lower_message test message1 test message1 test message1 test message1
+      .message
+        .upper_message
+          .upper_message__user-name username2
+          .upper_message__data 10.09.2017
+        .lower_message test message2 test message2 test message2 test message2
+    .form
+
+      %form{ action: "/", method: "post"}
+      %input{ name: "title", class: "form__message", id: "message__content", placeholder: "type your message."}
+        .form__mask
+          %label{for: "message_image", class: "form__mask__image"}
+            %i.fa.fa-picture-o.icon
+            %input{ type: "file", class: "hidden", id: "message_image"}
+      %input{ type: "submit", value: "send", class: "form__submit"}

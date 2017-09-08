@@ -1,0 +1,56 @@
+.sideVar {
+  width:300px;
+  height: calc(100vh);
+  float:left;
+  background-color: $blackblue;
+
+
+  .header {
+    width:260px;
+    height:100px;
+    padding:0 20px 0 20px;
+    float:left;
+    background-color: $darkblue;
+    line-height: 100px;
+
+      &__name {
+        color:$white;
+        font-size: 16px;
+        display: inline-block;
+      }
+      ul.header__lists {
+          float: right;
+
+        .icon {
+          color:$white;
+        }
+        li.list {
+            color:$white;
+            display: inline-block;
+        }
+      }
+  }
+}
+.groups {
+  width:260px;
+  height: calc(100vh - 100px);
+  padding:0 20px 0 20px;
+  float:left;
+
+  .group {
+    width:260px;
+    float:left;
+
+      &__name {
+        color:$white;
+        font-size: 15px;
+        padding-top: 20px;
+      }
+
+      &__message {
+        color:$white;
+        font-size: 11px;
+        padding: 5px 0 40px 0;
+      }
+  }
+}
