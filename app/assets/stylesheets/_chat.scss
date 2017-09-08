@@ -80,13 +80,13 @@
           @extend .clearfix;
           padding-bottom:10px;
 
-          .upper_message__user-name {
+          &__user-name {
             color:$darkgray;
             font-weight: bold;
             font-size: 16px;
             float: left;
           }
-          .upper_message__data {
+          &__data {
             color:$gray;
             font-size: 12px;
             margin: 4px 0 0 10px;
