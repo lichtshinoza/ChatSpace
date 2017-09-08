@@ -20,10 +20,10 @@
           font-size: 20px;
           padding-top:35px;
         }
-        ul.left-header__members {
-          float: left;
 
-          li.member {
+        &__members {
+          float: left;
+          .member {
             color:$gray;
             font-size: 12px;
             padding-top: 15px;
@@ -40,7 +40,7 @@
         float: right;
         line-height: 40px;
         border: 1px solid $skyblue;
-          a.right-header__button {
+          &__button {
             color: $skyblue;
             text-decoration: none;
             display:block;
