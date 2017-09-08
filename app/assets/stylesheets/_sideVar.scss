@@ -13,7 +13,7 @@
     background-color: $darkblue;
     line-height: 100px;
 
-      .header__name {
+      &__name {
         color:$white;
         font-size: 16px;
         display: inline-block;
@@ -41,13 +41,13 @@
     width:260px;
     float:left;
 
-      .group__name {
+      &__name {
         color:$white;
         font-size: 15px;
         padding-top: 20px;
       }
 
-      .group__message {
+      &__message {
         color:$white;
         font-size: 11px;
         padding: 5px 0 40px 0;

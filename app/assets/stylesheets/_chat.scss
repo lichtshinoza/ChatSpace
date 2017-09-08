@@ -15,7 +15,7 @@
         display: inline-block;
         float:left;
 
-        .left-header__title {
+        &__title {
           color:$dark;
           font-size: 20px;
           padding-top:35px;
@@ -72,7 +72,6 @@
     width: calc(100% - 80px);
     height: calc(100vh - 190px);
     padding:0 40px 0 40px;
-    // border-top: 1px solid #eeeeee;
     background-color:#fafafa;
     float:right;
       .message {
@@ -118,7 +117,7 @@
       float: left;
     }
 
-    .form__mask {
+    &__mask {
       height: 50px;
       line-height: 50px;
       padding-right: 10px;
@@ -126,15 +125,12 @@
       display: inline-block;
       background-color: $white;
 
-        .form__mask__image {
-
-        }
         .hidden {
           display: none;
         }
     }
 
-    .form__submit {
+    &__submit {
       margin-left: 15px;
       padding: 0 30px;
       height: 50px;
