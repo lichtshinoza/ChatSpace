@@ -45,9 +45,9 @@
     .form
 
       %form{ action: "/", method: "post"}
-      %input{ name: "title", size: "40", class: "form__message", id: "message__content"}
+      %input{ name: "title", class: "form__message", id: "message__content", placeholder: "type your message."}
         .form__mask
-
-          %i.fa.fa-picture-o.icon
-          %input{ type: "file", name: "file", class: "form__message", id: "message__content", style: "display:none"}
+          %label{for: "message_image", class: "form__mask__image"}
+            %i.fa.fa-picture-o.icon
+            %input{ type: "file", class: "hidden", id: "message_image"}
       %input{ type: "submit", value: "send", class: "form__submit"}

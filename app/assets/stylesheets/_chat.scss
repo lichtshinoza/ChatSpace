@@ -1,6 +1,6 @@
 .chat {
   width: calc(100% - 300px);
-  height:900px;
+  height: calc(100vh);
   float:right;
   background-color: white;
 
@@ -70,7 +70,7 @@
   .messages {
     @extend .clearfix;
     width: calc(100% - 80px);
-    height:710px;
+    height: calc(100vh - 190px);
     padding:0 40px 0 40px;
     // border-top: 1px solid #eeeeee;
     background-color:#fafafa;
@@ -125,6 +125,13 @@
       float:left;
       display: inline-block;
       background-color: #ffffff;
+
+        .form__mask__image {
+
+        }
+        .hidden {
+          display: none;
+        }
     }
 
     .form__submit {
