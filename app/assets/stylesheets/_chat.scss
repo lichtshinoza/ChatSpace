@@ -16,7 +16,7 @@
         float:left;
 
         .left-header__title {
-          color:#333333;
+          color:$dark;
           font-size: 20px;
           padding-top:35px;
         }
@@ -24,7 +24,7 @@
           float: left;
 
           li.member {
-            color:#999999;
+            color:$gray;
             font-size: 12px;
             padding-top: 15px;
             display: inline-block;
@@ -35,13 +35,13 @@
 
       .right-header {
         height:40px;
-        color:#38AEF0;
+        color: $skyblue;
         margin-top: 28px;
         float: right;
         line-height: 40px;
-        border: 1px solid #38AEF0;
+        border: 1px solid $skyblue;
           a.right-header__button {
-            color:#38AEF0;
+            color: $skyblue;
             text-decoration: none;
             display:block;
             padding: 0 20px;
@@ -57,7 +57,7 @@
             &:hover {
               text-decoration: none;
               color: white;
-              background-color:#38AEF0;
+              background-color:$skyblue;
             }
 
             &:active    {
@@ -82,13 +82,13 @@
           padding-bottom:10px;
 
           .upper_message__user-name {
-            color:#434A54;
+            color:$darkgray;
             font-weight: bold;
             font-size: 16px;
             float: left;
           }
           .upper_message__data {
-            color:#999999;
+            color:$gray;
             font-size: 12px;
             margin: 4px 0 0 10px;
             float: left;
@@ -96,7 +96,7 @@
         }
 
         .lower_message {
-          color:#434A54;
+          color:$darkgray;
           font-size: 14px;
         }
       }
@@ -124,7 +124,7 @@
       padding-right: 10px;
       float:left;
       display: inline-block;
-      background-color: #ffffff;
+      background-color: $white;
 
         .form__mask__image {
 
@@ -140,9 +140,9 @@
       height: 50px;
       font-size: 16px;
       float: right;
-      color: #ffffff;
+      color: $white;
       border:none;
-      background-color: #38AEF0;
+      background-color: $skyblue;
     }
 
   }
