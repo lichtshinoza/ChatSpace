@@ -1,25 +1,7 @@
 .notification
 .wrapper
   .sideVar
-    .header
-      %h3.header__name User Name Test
-      %ul.header__lists
-        %li.list
-          = link_to '/groups/' do
-            %i.fa.fa-pencil-square-o.icon
-        %li.list
-          = link_to '/groups/' do
-            %i.fa.fa-cog.icon
-    .groups
-      .group
-        .group__name test1
-        .group__message msg1
-      .group
-        .group__name test2
-        .group__message msg2
-      .group
-        .group__name test3
-        .group__message msg3
+    = render 'sideVar'
   .chat
     .header
       .left-header
