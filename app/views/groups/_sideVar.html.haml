@@ -5,7 +5,7 @@
       = link_to '/groups/' do
         %i.fa.fa-pencil-square-o.icon
     %li.list
-      = link_to '/groups/' do
+      = link_to edit_user_path(current_user.id) do
         %i.fa.fa-cog.icon
 .groups
   .group
