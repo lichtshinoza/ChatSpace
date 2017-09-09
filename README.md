@@ -31,9 +31,10 @@
  ## groups table
 
   |Column|Type|Option|
+  |------|------|------|
   |name|string|null: false, unique: true|
 
-  ### association
+  ### Association
 
  - has_many :messages
  - has_many :users, through: :members
