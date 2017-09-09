@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       flash[:alert] = "ログアウトしました"
     end
   end
+
+  def after_sign_out_path_for(resource)
+    '/users/sign_in'
+  end
 end
