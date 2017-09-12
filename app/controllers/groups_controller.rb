@@ -12,10 +12,10 @@ class GroupsController < ApplicationController
     # binding.pry
     # @group.save
     @group = Group.create(group_params)
-    if @group.save
-      redirect_to root_path
+    if @group.members.present?
+      redirect_to root_path, notice: "グループが作成されました。"
     else
-      render :new
+      redirect_to new_group_path, alert: "入力は正しいですか？"
     end
 
   end
