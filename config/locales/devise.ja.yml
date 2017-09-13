@@ -10,6 +10,23 @@ ja:
             members:
               invalid: "エラーです。"
 
+ja:
+  activerecord:
+    errors:
+      models:
+        group:
+          attributes:
+            name:
+              blank:
+ja:
+  activerecord:
+    errors:
+      models:
+        group:
+          attributes:
+            user_ids:
+              blank: "を選択してください。"
+
 
   errors:
     messages:

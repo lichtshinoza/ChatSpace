@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!, only: :index
+
   def index
   end
 
@@ -8,14 +9,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    # @group = Group.new(group_params)
-    # binding.pry
-    # @group.save
-    @group = Group.create(group_params)
-    if @group.members.present?
+    @group = Group.new(group_params)
+    @group.save
+    if @group.save
       redirect_to root_path, notice: "グループが作成されました。"
     else
-      redirect_to new_group_path, alert: "入力は正しいですか？"
+      render new_group_path
     end
 
   end
