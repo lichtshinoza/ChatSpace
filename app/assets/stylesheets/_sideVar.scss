@@ -36,21 +36,72 @@
   height: calc(100vh - 100px);
   padding:0 20px 0 20px;
   float:left;
+  overflow: auto;
 
   .group {
     width:260px;
+    height:105px;
     float:left;
-
-      &__name {
-        color:$white;
-        font-size: 15px;
-        padding-top: 20px;
+    overflow: hidden;
+    &__name {
+      font-size: 15px;
+      padding-top: 20px;
+      &__button {
+        color: $skyblue;
+        text-decoration: none;
+        display:block;
+        padding: 0 20px;
       }
-
-      &__message {
+      a {
         color:$white;
-        font-size: 11px;
-        padding: 5px 0 40px 0;
+        &:link  {
+          text-decoration: none;
+        }
+
+        &:visited   {
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+          color: white;
+          background-color:$skyblue;
+        }
+        &:active    {
+          text-decoration: none;
+        }
       }
+    }
+
+    &__message {
+      color:$white;
+      font-size: 11px;
+      padding: 5px 0 40px 0;
+      &__button {
+        color: $skyblue;
+        text-decoration: none;
+        display:block;
+        padding: 0 20px;
+      }
+      a {
+        color:$white;
+        &:link  {
+          text-decoration: none;
+        }
+
+        &:visited   {
+          text-decoration: none;
+        }
+
+        &:hover {
+          text-decoration: none;
+          color: white;
+          background-color:$skyblue;
+        }
+        &:active    {
+          text-decoration: none;
+        }
+      }
+    }
   }
 }

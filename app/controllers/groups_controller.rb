@@ -2,6 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!, only: :index
 
   def index
+    @groups = Group.all
   end
 
   def new
@@ -18,9 +19,16 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = Group.new
   end
 
   def update
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to root_path, notice: "グループ情報が更新されました。"
+    else
+      render edit_group_path
+    end
   end
 
   private
