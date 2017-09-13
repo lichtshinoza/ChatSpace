@@ -1,28 +1,18 @@
 .wrapper
   .sideVar
-    = render 'sideVar'
+    = render './shared/sideVar'
   .chat
     .header
       .left-header
-        .left-header__title Group Name Test
+        .left-header__title
         %ul.left-header__members
-          %li.member Member :
-          %li.member name1
-          %li.member name2
-      .right-header
-        = link_to edit_group_path(1), class: "right-header__button" do
-          Edit
+          %li.member
     .messages
       .message
         .upper_message
-          .upper_message__user-name Title
-          .upper_message__data 06.09.2017
-        .lower_message test message1 test message1 test message1 test message1
-      .message
-        .upper_message
-          .upper_message__user-name username2
-          .upper_message__data 10.09.2017
-        .lower_message test message2 test message2 test message2 test message2
+          .upper_message__user-name
+          .upper_message__data
+        .lower_message
     .form
 
       %form{ action: "/", method: "post"}

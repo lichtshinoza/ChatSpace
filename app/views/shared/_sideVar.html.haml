@@ -11,5 +11,6 @@
   - @groups.each do |grp|
     .group
       .group__name
-        = link_to grp.name, group_path(grp.id)
-      .group__message Test Message Test Message Test Message
+        = link_to grp.name, group_messages_path(grp.id)
+      .group__message
+        = link_to "comment here...", group_messages_path(grp.id)
