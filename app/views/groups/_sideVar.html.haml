@@ -8,12 +8,8 @@
       = link_to edit_user_path(current_user.id) do
         %i.fa.fa-cog.icon
 .groups
-  .group
-    .group__name test1
-    .group__message msg1
-  .group
-    .group__name test2
-    .group__message msg2
-  .group
-    .group__name test3
-    .group__message msg3
+  - @groups.each do |grp|
+    .group
+      .group__name
+        = link_to grp.name, group_path(grp.id)
+      .group__message Test Message Test Message Test Message
