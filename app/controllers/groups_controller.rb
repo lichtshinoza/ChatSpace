@@ -20,14 +20,15 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.new
+    @group_name = Group.all.find(params[:id]).name
   end
 
   def update
-    @group = Group.new(group_params)
-    if @group.save
-      redirect_to root_path, notice: "グループ情報が更新されました。"
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to root_path, notice: "更新成功！"
     else
-      render edit_group_path
+      redirect_to edit_group_path(params[:id]), alert: "請輸入組名"
     end
   end
 
