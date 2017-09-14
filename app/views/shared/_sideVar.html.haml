@@ -1,5 +1,6 @@
 .header
-  %h3.header__name User Name Test
+  %h3.header__name
+    = link_to 'User Name Test', root_path
   %ul.header__lists
     %li.list
       = link_to new_group_path do

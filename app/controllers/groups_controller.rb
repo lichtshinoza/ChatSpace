@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   before_action :authenticate_user!, only: :index
 
   def index
-    @groups = Group.all
+    @groups = current_user.groups
   end
 
   def new
@@ -26,9 +26,9 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
     if @group.update(group_params)
-      redirect_to root_path, notice: "更新成功！"
+      redirect_to root_path, notice: "グループ名を変更しました：更新成功！"
     else
-      redirect_to edit_group_path(params[:id]), alert: "請輸入組名"
+      redirect_to edit_group_path(params[:id]), alert: "グループ名を入れてください：請輸入組名！"
     end
   end
 
