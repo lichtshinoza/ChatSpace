@@ -6,7 +6,7 @@
       .left-header
         .left-header__title #{current_user.groups.find(params[:group_id]).name}
         %ul.left-header__members
-          %li.member Member :
+          %li.member.italic Member :
           - current_user.groups.find(params[:group_id]).users.each do |t|
             %li.member
               = "#{t.name},"
