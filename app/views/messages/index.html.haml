@@ -4,10 +4,10 @@
   .chat
     .header
       .left-header
-        .left-header__title #{@groups.find(params[:group_id]).name}
+        .left-header__title #{current_user.groups.find(params[:group_id]).name}
         %ul.left-header__members
           %li.member Member :
-          - @group_members.each do |t|
+          - current_user.groups.find(params[:group_id]).users.each do |t|
             %li.member
               = "#{t.name},"
       .right-header
@@ -25,7 +25,7 @@
           .upper_message__data 10.09.2017
         .lower_message test message2 test message2 test message2 test message2
     .form
-      = form_for(@messages, url: {action: :create}) do |f|
+      = form_for(@message, url: {action: :create}) do |f|
         = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message."
         .form__mask
           %label{for: "message_image", class: "form__mask__image"}
