@@ -13,5 +13,9 @@
     .group
       .group__name
         = link_to grp.name, group_messages_path(grp.id)
-      .group__message
-        = link_to "comment here...", group_messages_path(grp.id)
+      - if current_user.messages.where(group_id: grp.id).blank?
+        .group__message.italic
+          = link_to "- Let's begin chat! -", group_messages_path(grp.id)
+      - else
+        .group__message
+          = link_to "#{current_user.messages.where(group_id: grp.id).last.msg}", group_messages_path(grp.id)
