@@ -24,7 +24,7 @@
           .lower_message
             = "#{m.msg}"
     .form
-      = form_for(@message, url: {action: :create}) do |f|
+      = form_for [@group, @message] do |f|
         = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message."
         .form__mask
           %label{for: "message_image", class: "form__mask__image"}
