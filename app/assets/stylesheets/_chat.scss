@@ -70,12 +70,12 @@
   .messages {
     @extend .clearfix;
     width: calc(100% - 80px);
-    height: calc(100vh - 190px);
-    padding:0 40px 0 40px;
+    height: calc(100vh - 190px - 46px);
+    padding:46px 40px 0;
     background-color:#fafafa;
     float:right;
       .message {
-        padding:40px 0 40px 0;
+        padding-bottom:40px;
         .upper_message {
           @extend .clearfix;
           padding-bottom:10px;

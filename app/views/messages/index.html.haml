@@ -14,11 +14,15 @@
         = link_to edit_group_path(params[:group_id]), class: "right-header__button" do
           Edit
     .messages
-      .message
-        .upper_message
-          .upper_message__user-name Title
-          .upper_message__data 06.09.2017
-        .lower_message test message1 test message1 test message1 test message1
+      - @messages.each do |m|
+        .message
+          .upper_message
+            .upper_message__user-name
+              = "#{m.user.name}"
+            .upper_message__data
+              = "#{m.created_at}"
+          .lower_message
+            = "#{m.msg}"
     .form
       = form_for(@message, url: {action: :create}) do |f|
         = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message."

@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def index
     @groups = current_user.groups
     @message = Message.new
+    @messages = Message.where(group_id: params[:group_id])
   end
 
   def create
