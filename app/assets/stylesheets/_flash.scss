@@ -2,9 +2,9 @@
   color: $white;
   text-align: center;
   &__alert{
-    background-color: red;
+    background-color: $orange;
   }
   &__notice {
-    background-color: $skyblue;
+    background-color: $green;
   }
 }

@@ -1,0 +1,29 @@
+.wrapper
+  .sideVar
+    = render './shared/sideVar'
+  .chat
+    .header
+      .left-header
+        .left-header__title #{current_user.groups.find(params[:group_id]).name}
+        %ul.left-header__members
+          %li.member Member :
+          - current_user.groups.find(params[:group_id]).users.each do |t|
+            %li.member
+              = "#{t.name},"
+      .right-header
+        = link_to edit_group_path(params[:group_id]), class: "right-header__button" do
+          Edit
+    .messages
+      .message
+        .upper_message
+          .upper_message__user-name Title
+          .upper_message__data 06.09.2017
+        .lower_message test message1 test message1 test message1 test message1
+    .form
+      = form_for(@message, url: {action: :create}) do |f|
+        = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message."
+        .form__mask
+          %label{for: "message_image", class: "form__mask__image"}
+            %i.fa.fa-picture-o.icon
+            = f.file_field :upload, class: "hidden", id: "message_image"
+        = f.submit :Send, class: "form__submit"
