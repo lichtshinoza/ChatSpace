@@ -16,6 +16,9 @@
       - if current_user.messages.where(group_id: grp.id).blank?
         .group__message.italic
           = link_to "- Let's begin chat! -", group_messages_path(grp.id)
+      - elsif current_user.messages.where(group_id: grp.id).last.msg.length == 0
+        .group__message
+          = link_to "Image is sended.", group_messages_path(grp.id)
       - else
         .group__message
           = link_to "#{current_user.messages.where(group_id: grp.id).last.msg}", group_messages_path(grp.id)
