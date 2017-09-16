@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
 
   def index
-    @group = Group.find(params[:group_id])
+    @group = Group.includes(messages: :user).find(params[:group_id])
     @groups = current_user.groups
     @message = Message.new
-    @messages = Message.where(group_id: params[:group_id])
+    @messages = @group.messages
   end
 
   def create
@@ -16,6 +16,13 @@ class MessagesController < ApplicationController
       redirect_to group_messages_path, alert: "投稿内容が空欄です。"
     end
   end
+
+  def destroy
+    message = Message.find(params[:id])
+    message.destroy if message.user_id == current_user.id
+    redirect_to group_messages_path, notice: "メッセージを削除しました。"
+  end
+
   private
   def messages_params
     params.require(:message).permit(:msg, :image).merge(user_id: current_user.id, group_id: params[:group_id])

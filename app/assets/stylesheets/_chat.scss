@@ -74,6 +74,7 @@
     padding:46px 40px 0;
     background-color:#fafafa;
     float:right;
+    overflow: auto;
       .message {
         padding-bottom:40px;
         .upper_message {
@@ -92,11 +93,37 @@
             margin: 4px 0 0 10px;
             float: left;
           }
+          &__delete {
+            float: left;
+          }
+          a {
+            color:$gray;
+            font-size: 12px;
+            margin: 4px 0 0 10px;
+            &:link  {
+              text-decoration: none;
+            }
+
+            &:visited   {
+              text-decoration: none;
+            }
+
+            &:hover {
+              text-decoration: none;
+            }
+
+            &:active    {
+              text-decoration: none;
+            }
+          }
         }
 
         .lower_message {
           color:$darkgray;
           font-size: 14px;
+          & img {
+            width: 300px;
+          }
         }
       }
   }
