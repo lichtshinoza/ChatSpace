@@ -6,10 +6,10 @@
       .left-header
         .left-header__title #{current_user.groups.find(params[:group_id]).name}
         %ul.left-header__members
-          %li.member.italic Member :
+          %li.member.italic Member
           - current_user.groups.find(params[:group_id]).users.each do |t|
             %li.member
-              = "#{t.name},"
+              = "| #{t.name}"
       .right-header
         = link_to edit_group_path(params[:group_id]), class: "right-header__button" do
           Edit
@@ -20,14 +20,28 @@
             .upper_message__user-name
               = "#{m.user.name}"
             .upper_message__data
-              = "#{m.created_at}"
-          .lower_message
-            = "#{m.msg}"
+              = data_display_style m
+              / = "- #{m.created_at.strftime('%d.%m.%Y, %H:%M')} -"
+            - if m.user_id == current_user.id
+              .upper_message__delete.italic
+                = link_to group_message_path(params[:group_id], m.id), method: :delete do
+                  Delete
+          - if m.image.blank?
+            .lower_message
+              = "#{m.msg}"
+          - elsif m.msg.blank?
+            .lower_message
+              = image_tag m.image.url
+          - else
+            .lower_message
+              = image_tag m.image.url
+            .lower_message
+              = "#{m.msg}"
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message."
         .form__mask
           %label{for: "message_image", class: "form__mask__image"}
             %i.fa.fa-picture-o.icon
-            = f.file_field :upload, class: "hidden", id: "message_image"
+            = f.file_field :image, class: "hidden", id: "message_image"
         = f.submit :Send, class: "form__submit"
