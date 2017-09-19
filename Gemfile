@@ -28,6 +28,9 @@ gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -37,4 +40,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-
+group :test do
+  gem 'faker'
+end
