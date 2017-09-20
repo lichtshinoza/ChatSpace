@@ -10,9 +10,13 @@ class MessagesController < ApplicationController
     @group = Group.find(params[:group_id])
     @message = Message.new(messages_params)
     if @message.save
-      redirect_to group_messages_path, notice: "メッセージが投稿されました。"
+      respond_to do |format|
+        format.html {redirect_to group_messages_path(@group), notice: "メッセージが送信されました"}
+        format.json
+      end
     else
-      redirect_to group_messages_path, alert: "投稿内容が空欄です。"
+      flash.now[:alert]
+      render :index
     end
   end
 

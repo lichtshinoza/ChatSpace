@@ -21,7 +21,6 @@
               = "#{m.user.name}"
             .upper_message__data
               = data_display_style m
-              / = "- #{m.created_at.strftime('%d.%m.%Y, %H:%M')} -"
             - if m.user_id == current_user.id
               .upper_message__delete.italic
                 = link_to group_message_path(params[:group_id], m.id), method: :delete do
@@ -38,7 +37,7 @@
             .lower_message
               = "#{m.msg}"
     .form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: {id: 'new_message'} do |f|
         = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message."
         .form__mask
           %label{for: "message_image", class: "form__mask__image"}
