@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var url_common = `<div class="message">
+    var html_common = `<div class="message">
                         <div class="upper_message">
                           <div class="upper_message__user-name">${message.user_name}</div>
                           <div class="upper_message__data">${message.data}</div>
@@ -8,21 +8,21 @@ $(function(){
                         </div>
                         <div class="lower_message">`
     if(message.msg && message.image_url){
-      var url = url_common + `${message.msg}</div>
+      var html = html_common + `${message.msg}</div>
                   <div class="lower_message">${message.image_url}</div>
                 </div>`
-      return url;
+      return html;
     }
     else if(message.msg){
-      var url = url_common + `${message.msg}</div>
+      var html = html_common + `${message.msg}</div>
                 </div>`
-      return url;
+      return html;
     }
 
     else{
-      var url = url_common + `${message.image_url}</div>
+      var html = html_common + `${message.image_url}</div>
                 </div>`
-      return url;
+      return html;
     }
 
   }

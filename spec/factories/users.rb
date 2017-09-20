@@ -8,9 +8,5 @@ FactoryGirl.define do
     password_confirmation pass
     created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
     updated_at { Faker::Time.between(1.days.ago, Time.now, :all) }
-
-    # after(:create) do |user|
-    #   create(:member, user_id: user, group_id: create(:group))
-    # end
   end
 end
