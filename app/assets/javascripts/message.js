@@ -9,7 +9,7 @@ $(function(){
                         <div class="lower_message">`
     if(message.msg && message.image_url){
       var html = html_common + `${message.msg}</div>
-                  <div class="lower_message">${message.image_url}</div>
+                  <div class="lower_message"><img src="${message.image_url}" alt="${message.image}"></div>
                 </div>`
       return html;
     }
@@ -20,7 +20,7 @@ $(function(){
     }
 
     else{
-      var html = html_common + `${message.image_url}</div>
+      var html = html_common + `<img src="${message.image_url}" alt="${message.image}"></div>
                 </div>`
       return html;
     }
@@ -29,6 +29,15 @@ $(function(){
   function flash() {
     var html =
       `<p class="flash alert-notice">メッセージを送信しました</p>`
+    $('.alert').append(html);
+    $('.alert-notice').fadeIn(500).fadeOut(2000);
+    setTimeout(function(){
+     $('.alert-notice').remove();
+    },2500);
+  }
+  function flash_delete() {
+    var html =
+      `<p class="flash alert-notice">メッセージを削除しました</p>`
     $('.alert').append(html);
     $('.alert-notice').fadeIn(500).fadeOut(2000);
     setTimeout(function(){
@@ -53,6 +62,8 @@ $(function(){
       $('.form__message').val('');
       $('.form__submit').prop('disabled', false);
       flash();
+      $('.messages').animate({scrollTop:$('.form').offset().top});
+      return false;
     })
     .fail(function(){
       alert('error');
@@ -60,6 +71,6 @@ $(function(){
   });
   $('.upper_message__delete').on('click', function(e){
     e.preventDefault();
-    flash();
+    flash_delete();
   });
 });

@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
         format.json
       end
     else
+      flash.now[:alert] = "メッセージ投稿に失敗しました"
       render :index
     end
   end
@@ -22,7 +23,7 @@ class MessagesController < ApplicationController
   def destroy
     message = Message.find(params[:id])
     message.destroy if message.user_id == current_user.id
-    redirect_to group_messages_path, notice: "メッセージを削除しました。"
+    redirect_to group_messages_path
   end
 
   private
