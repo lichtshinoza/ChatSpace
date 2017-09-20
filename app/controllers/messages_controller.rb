@@ -15,7 +15,6 @@ class MessagesController < ApplicationController
         format.json
       end
     else
-      flash.now[:alert]
       render :index
     end
   end

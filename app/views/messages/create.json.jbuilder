@@ -7,12 +7,3 @@
   json.msg  @message.msg
   json.image_url  @message.image.url
   json.group_id  @message.group.id
-
-
-
-
-
-
-
-
-

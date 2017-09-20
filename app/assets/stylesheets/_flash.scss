@@ -1,10 +1,20 @@
 .flash {
+  width: 100%;
   color: $white;
   text-align: center;
   &__alert{
     background-color: $orange;
+    position: fixed;
   }
   &__notice {
     background-color: $green;
+    position: fixed;
   }
+}
+.flash.alert-notice {
+  width: 100%;
+  color: $white;
+  text-align: center;
+  background-color: $green;
+  position: fixed;
 }
