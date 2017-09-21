@@ -20,7 +20,7 @@
       - elsif Message.where(group_id: grp.id).last.msg.length == 0
         .group__message
           = link_to group_messages_path(grp.id), class: "#{grp.id}" do
-            Image is sended.
+            sent image.
       - else
         .group__message
           = link_to  group_messages_path(grp.id), class: "#{grp.id}" do
