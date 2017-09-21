@@ -24,8 +24,20 @@ $(function(){
                 </div>`
       return html;
     }
-
   }
+  function ChangedSideId(message){
+    side_id = "a." + message.group_id
+    return side_id
+  };
+  function ChangedSideMsg(message){
+    if(message.msg){
+      side_msg = message.msg
+    }
+    else {
+      side_msg = 'sent image'
+    }
+    return side_msg
+  };
   function flash() {
     var html =
       `<p class="flash alert-notice">メッセージを送信しました</p>`
@@ -58,6 +70,9 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
+      var changed_side_id = ChangedSideId(data);
+      var latest_msg = ChangedSideMsg(data);
+      $(changed_side_id).text(latest_msg);
       $('.messages').append(html);
       $('.form__message').val('');
       $('.form__submit').prop('disabled', false);

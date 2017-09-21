@@ -15,10 +15,13 @@
         = link_to grp.name, group_messages_path(grp.id)
       - if Message.where(group_id: grp.id).blank?
         .group__message.italic
-          = link_to "- Let's begin chat! -", group_messages_path(grp.id)
+          = link_to group_messages_path(grp.id), class: "#{grp.id}" do
+            Let's begin chat!
       - elsif Message.where(group_id: grp.id).last.msg.length == 0
         .group__message
-          = link_to "Image is sended.", group_messages_path(grp.id)
+          = link_to group_messages_path(grp.id), class: "#{grp.id}" do
+            Image is sended.
       - else
         .group__message
-          = link_to "#{Message.where(group_id: grp.id).last.msg}", group_messages_path(grp.id)
+          = link_to  group_messages_path(grp.id), class: "#{grp.id}" do
+            #{Message.where(group_id: grp.id).last.msg}
