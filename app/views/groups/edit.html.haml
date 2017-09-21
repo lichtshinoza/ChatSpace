@@ -21,11 +21,11 @@
         .chat-group-form__search.clearfix
           = t.text_field :name, id: "user-search-field", class: "chat-group-form__input", placeholder: "追加したいユーザー名を入力してください", value: ""
         .js-user-search-result
-        .chat-group-user.clearfix
-          %p.chat-group-user__name
-            onamae
-          =link_to "#", class: ("user-search-add chat-group-user__btn chat-group-user__btn--add js-add-btn") do
-            追加
+          .chat-group-user.clearfix
+            %p.chat-group-user__name
+              onamae
+            =link_to "#", class: ("user-search-add chat-group-user__btn chat-group-user__btn--add js-add-btn") do
+              追加
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         %label.chat-group-form__label{for: "group_チャットメンバー"} チャットメンバー
