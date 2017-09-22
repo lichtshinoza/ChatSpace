@@ -90,18 +90,17 @@ $(function(){
   });
 
   var interval = setInterval(function() {
-    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      var last_id = $('.message:last-child').data('messageId');
       $.ajax({
+        type: 'GET',
         url: location.href,
+        data: { last_id: last_id },
         dataType: 'json'
       })
       .done(function(json) {
-        var last_id = $('.message:last-child').data('messageId');
         var insertHTML = '';
         json.messages.forEach(function(message) {
-          if (message.length !== 0) {
             insertHTML += buildHTML(message);
-          }
         });
         $('.messages').append(insertHTML);
         $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
@@ -111,8 +110,5 @@ $(function(){
         $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
         return false;
       });
-    }
-    else {
-    clearInterval(interval);
-   }} , 5 * 1000 );
+  } , 5 * 1000 );
 });
