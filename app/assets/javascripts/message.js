@@ -99,7 +99,6 @@ $(function(){
         var last_id = $('.message:last-child').data('messageId');
         var insertHTML = '';
         json.messages.forEach(function(message) {
-          console.log(message)
           if (message.length !== 0) {
             insertHTML += buildHTML(message);
           }
