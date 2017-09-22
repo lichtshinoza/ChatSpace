@@ -13,7 +13,14 @@ $(function(){
                 </div>`
     return html;
   }
-
+  function buildHTML(user_id, user_name){
+    var html = `<div class='chat-group-user clearfix js-chat-member'>
+                  <input name='group[user_ids][]' type='hidden' value='${user_id}'>
+                  <p class='chat-group-user__name'>${user_name}</p>
+                  <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data_user_id="${user_id}" data_user_name="${user_name}">削除</a>
+                  </div>`
+    return html;
+  }
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
     $.ajax({
@@ -41,16 +48,6 @@ $(function(){
       alert('ユーザー検索に失敗しました');
     })
   });
-
-  function buildHTML(user_id, user_name){
-    var html = `<div class='chat-group-user clearfix js-chat-member'>
-                  <input name='group[user_ids][]' type='hidden' value='${user_id}'>
-                  <p class='chat-group-user__name'>${user_name}</p>
-                  <a class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn" data_user_id="${user_id}" data_user_name="${user_name}">削除</a>
-                  </div>`
-    return html;
-  }
-
   $(document).on('click','.js-add-btn', function(e){
     e.preventDefault();
     var user_id = $(this).attr('data_user_id');
