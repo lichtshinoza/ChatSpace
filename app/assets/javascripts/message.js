@@ -3,7 +3,7 @@ $(function(){
     var html_common = `<div class="message">
                         <div class="upper_message">
                           <div class="upper_message__user-name">${message.user_name}</div>
-                          <div class="upper_message__data">${message.data}</div>
+                          <div class="upper_message__data">${message.date}</div>
                           <div class="upper_message__delete italic"><a rel="nofollow" data-method="delete" href="/groups/${message.group_id}/messages/${message.id}">Delete</a></div>
                         </div>
                         <div class="lower_message">`
@@ -77,7 +77,7 @@ $(function(){
       $('.form__message').val('');
       $('.form__submit').prop('disabled', false);
       flash();
-      $('.messages').animate({scrollTop:$('.form').offset().top});
+      $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
       return false;
     })
     .fail(function(){
@@ -96,20 +96,21 @@ $(function(){
         dataType: 'json'
       })
       .done(function(json) {
-        var id = $('.message').data('messageId');
+        var last_id = $('.message:last-child').data('messageId');
         var insertHTML = '';
-        var json_record_number = json.messages.length
         json.messages.forEach(function(message) {
-          if (message.id > id + json_record_number -1) {
+          console.log(message)
+          if (message.length !== 0) {
             insertHTML += buildHTML(message);
           }
         });
         $('.messages').append(insertHTML);
-        $('.messages').animate({scrollTop:$('.form').offset().top});
+        $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
         return false;
       })
       .fail(function(json) {
-        alert('自動更新に失敗しました');
+        $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
+        return false;
       });
     }
     else {
