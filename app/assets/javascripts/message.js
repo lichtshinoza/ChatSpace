@@ -88,4 +88,31 @@ $(function(){
     e.preventDefault();
     flash_delete();
   });
+
+  var interval = setInterval(function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        url: location.href,
+        dataType: 'json'
+      })
+      .done(function(json) {
+        var id = $('.message').data('messageId');
+        var insertHTML = '';
+        var json_record_number = json.messages.length
+        json.messages.forEach(function(message) {
+          if (message.id > id + json_record_number -1) {
+            insertHTML += buildHTML(message);
+          }
+        });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop:$('.form').offset().top});
+        return false;
+      })
+      .fail(function(json) {
+        alert('自動更新に失敗しました');
+      });
+    }
+    else {
+    clearInterval(interval);
+   }} , 5 * 1000 );
 });

@@ -15,7 +15,7 @@
           Edit
     .messages
       - @messages.each do |m|
-        .message
+        .message{ "data-message-id": "#{m.id}"}
           .upper_message
             .upper_message__user-name
               = "#{m.user.name}"
@@ -38,7 +38,7 @@
               = "#{m.msg}"
     .form
       = form_for [@group, @message], html: {id: 'new_message'} do |f|
-        = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message."
+        = f.text_field :msg, class: "form__message", id: "message__content", placeholder: "type your message.", autocomplete: "off"
         .form__mask
           %label{for: "message_image", class: "form__mask__image"}
             %i.fa.fa-picture-o.icon
