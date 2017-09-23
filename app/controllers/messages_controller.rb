@@ -4,6 +4,10 @@ class MessagesController < ApplicationController
     @group = Group.includes(:users).find(params[:group_id])
     @message = Message.new
     @messages = @group.messages
+    respond_to do |format|
+      format.html
+      format.json { @new_messages = @group.messages.where('id > ?', params[:last_id])}
+    end
   end
 
   def create

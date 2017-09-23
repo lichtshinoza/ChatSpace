@@ -3,7 +3,7 @@ $(function(){
     var html_common = `<div class="message">
                         <div class="upper_message">
                           <div class="upper_message__user-name">${message.user_name}</div>
-                          <div class="upper_message__data">${message.data}</div>
+                          <div class="upper_message__data">${message.date}</div>
                           <div class="upper_message__delete italic"><a rel="nofollow" data-method="delete" href="/groups/${message.group_id}/messages/${message.id}">Delete</a></div>
                         </div>
                         <div class="lower_message">`
@@ -77,7 +77,7 @@ $(function(){
       $('.form__message').val('');
       $('.form__submit').prop('disabled', false);
       flash();
-      $('.messages').animate({scrollTop:$('.form').offset().top});
+      $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
       return false;
     })
     .fail(function(){
@@ -88,4 +88,27 @@ $(function(){
     e.preventDefault();
     flash_delete();
   });
+
+  var interval = setInterval(function() {
+      var last_id = $('.message:last-child').data('messageId');
+      $.ajax({
+        type: 'GET',
+        url: location.href,
+        data: { last_id: last_id },
+        dataType: 'json'
+      })
+      .done(function(json) {
+        var insertHTML = '';
+        json.messages.forEach(function(message) {
+            insertHTML += buildHTML(message);
+        });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
+        return false;
+      })
+      .fail(function(json) {
+        $('.messages').animate({scrollTop:$('.messages')[0].scrollHeight});
+        return false;
+      });
+  } , 5 * 1000 );
 });
