@@ -99,7 +99,7 @@ $(function(){
       })
       .done(function(json) {
         var insertHTML = '';
-        json.messages.forEach(function(message) {
+        json.forEach(function(message) {
             insertHTML += buildHTML(message);
         });
         $('.messages').append(insertHTML);
