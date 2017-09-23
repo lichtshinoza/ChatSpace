@@ -4,9 +4,10 @@ class MessagesController < ApplicationController
     @group = Group.includes(:users).find(params[:group_id])
     @message = Message.new
     @messages = @group.messages
+    @new_messages = @messages.where('id > ?', params[:last_id])
     respond_to do |format|
       format.html
-      format.json { @new_messages = @group.messages.where('id > ?', params[:last_id])}
+      format.json
     end
   end
 
